@@ -13,13 +13,13 @@ The Natural Language Processing with Next-Generation Transformer Architectures s
 
 ### Notebooks
 
-[Introduction to GPT2](notebooks/Introduction to GPT.ipynb)
+[Introduction to GPT2](notebooks/Introduction_to_GPT.ipynb)
 
-[Ingesting a new corpus](notebooks/Ingesting a New Corpus.ipynb)
+[Ingesting a new corpus](notebooks/Ingesting_New_Corpus.ipynb)
 
-[Multi-task learning with GPT2](notebooks/GPT Multi-Task Learning.ipynb)
+[Multi-task learning with GPT2](notebooks/GPT_Multi_Task_Learning.ipynb)
 
-[Third part fine-tuned GPT models](notebooks/Third Party Models.ipynb)
+[Third part fine-tuned GPT models](notebooks/Third_Party_Models.ipynb)
 
 ## Instructor
 
