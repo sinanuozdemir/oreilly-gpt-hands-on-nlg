@@ -19,7 +19,7 @@ The Natural Language Processing with Next-Generation Transformer Architectures s
 
 [Multi-task learning with GPT2](notebooks/GPT_Multi_Task_Learning.ipynb)
 
-[Third part fine-tuned GPT models](notebooks/Third_Party_Models.ipynb)
+[Third party fine-tuned GPT models](notebooks/Third_Party_Models.ipynb)
 
 ## Instructor
 
