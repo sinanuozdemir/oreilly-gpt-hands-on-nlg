@@ -17,7 +17,7 @@ The Natural Language Processing with Next-Generation Transformer Architectures s
 
 [Ingesting a new corpus](notebooks/Ingesting_New_Corpus.ipynb)
 
-[Multi-task learning with GPT2](notebooks/GPT_Multi_Task_Learning.ipynb)
+[Multi-task learning with GPT2](notebooks/Multi_Task_Learning.ipynb)
 
 [Third party fine-tuned GPT models](notebooks/Third_Party_Models.ipynb)
 
