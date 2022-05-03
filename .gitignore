@@ -1,3 +1,7 @@
 .DS_Store
 .ipynb_checkpoints/
 gpt2_*
+data/cached*
+notebooks/calculus/
+notebooks/calculus_english_to_latex/
+notebooks/english_to_latex/
