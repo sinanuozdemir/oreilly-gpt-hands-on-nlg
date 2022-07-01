@@ -1,0 +1,663 @@
+\RequirePackage{mmap}  % make PDF copy and paste-able
+\documentclass[twocolumn]{article}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{mathrsfs}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+% \usepackage{lmodern} % from http://tex.stackexchange.com/a/115089/121234
+\usepackage[margin=0.5in]{geometry}
+
+\setlength{\parskip}{0ex}
+\usepackage{ragged2e}
+  \setlength{\RaggedRightParindent}{1em}
+
+\usepackage{url}
+\usepackage{listings}
+\lstset{%
+  basicstyle=\scriptsize\ttfamily,  % the size of the fonts 
+  columns=fixed,          % anything else is horrifying
+  showspaces=false,       % show spaces using underscores?
+  showstringspaces=false, % underline spaces within strings?
+  showtabs=false,         % show tabs within strings?
+  xleftmargin=1.5em,      % left margin space
+}
+\lstdefinestyle{inline}{basicstyle=\ttfamily}
+
+\usepackage[dvipsnames]{xcolor}
+  \definecolor{headcolor}{HTML}{004225} % British racing green {E34234}  % vermillion
+\usepackage{titlesec}
+% \titleformat{ command }[ shape ]{ format }{ label }{ sep }{ before-code }[ after-code ]
+% \titlespacing*{ command }{ left }{ before-sep }{ after-sep }[ right-sep ]
+\titleformat{\section}[runin]{\color{headcolor}\bf}{}{0em}{}
+  \titlespacing*{\section}{0em}{0.65ex}{0.67em}
+
+% TODO
+
+
+\pagestyle{empty}
+\begin{document}\thispagestyle{empty}
+\RaggedRight
+\begin{center}
+  {\large\color{headcolor}\textbf{\LaTeX{} Math for Undergrads}}  \\
+\end{center}
+
+\section{Rule One}
+Any mathematics at all, 
+even a single character, gets a mathematical setting.
+Thus, for ``the value of $x$ is $7$\,'' enter
+\lstinline[style=inline]!the value of $x$ is $7$!.
+
+\section{Template}
+Your document should contain at least this.
+\begin{lstlisting}
+\documentclass{article}
+\usepackage{mathtools,amssymb,amsthm} % imports amsmath
+
+\begin{document}
+  --document body here--
+\end{document}     
+\end{lstlisting}
+
+
+\section{Common constructs}
+\begin{center}
+  \begin{tabular}{@{} *{1}{l@{\hspace{1.5em}}} l @{}}
+    $x^2$\quad\lstinline[style=inline]!x^2!
+      &$\sqrt{2}$, $\sqrt[n]{3}$\quad\lstinline[style=inline]!\sqrt{2}!,
+        \lstinline[style=inline]!\sqrt[n]{3}!                           \\     
+    $x_{i,j}$\quad\lstinline[style=inline]!x_{i,j}!
+      &$\frac{2}{3}$, $2/3$\quad\lstinline[style=inline]!\frac{2}{3}!,
+      \lstinline[style=inline]!2/3!                                     
+  \end{tabular}
+\end{center}
+
+\section{Calligraphic letters}
+Use as in \lstinline[style=inline]!$\mathcal{A}$!.
+\begin{center}
+    $ \mathcal{A}\mathcal{B}\mathcal{C} 
+       \mathcal{D}\mathcal{E}\mathcal{F} 
+       \mathcal{G}\mathcal{H}\mathcal{I} 
+       \mathcal{J}\mathcal{K}\mathcal{L} 
+       \mathcal{M}\mathcal{N}\mathcal{O} 
+       \mathcal{P}\mathcal{Q}\mathcal{R} 
+       \mathcal{S}\mathcal{T}\mathcal{U} 
+       \mathcal{V}\mathcal{W}\mathcal{X} 
+       \mathcal{Y}\mathcal{Z}  $
+\end{center}
+Get script letters, such as $\mathscr{P}$
+from \lstinline[style=inline]!$\mathscr{P}$!, 
+by putting 
+\lstinline[style=inline]!\usepackage{mathrsfs}!
+in the preamble.
+
+\section{Greek}
+\begin{center}
+  \begin{tabular}{@{}l@{\hspace{1em}}l@{}}
+    $\alpha$\quad\lstinline[style=inline]!\alpha! 
+      &$\xi$, $\Xi$\quad\lstinline[style=inline]!\xi!, 
+         \lstinline[style=inline]!\Xi!                 \\
+    $\beta$\quad\lstinline[style=inline]!\beta!                   
+      &o\quad\lstinline[style=inline]!o!                    \\
+    $\gamma$, $\Gamma$\quad\lstinline[style=inline]!\gamma!,  
+         \lstinline[style=inline]!\Gamma!
+      &$\pi$, $\Pi$\quad\lstinline[style=inline]!\pi!, 
+        \lstinline[style=inline]!\Pi!                      \\
+    $\delta$, $\Delta$\quad\lstinline[style=inline]!\delta!,   
+          \lstinline[style=inline]!\Delta! 
+       &$\varpi$\quad\lstinline[style=inline]!\varpi!     \\ 
+    $\epsilon$\quad\lstinline[style=inline]!\epsilon! 
+      &$\rho$\quad\lstinline[style=inline]!\rho! \\
+    $\varepsilon$\quad\lstinline[style=inline]!\varepsilon! 
+      &$\varrho$\quad\lstinline[style=inline]!\varrho! \\
+    $\zeta$\quad\lstinline[style=inline]!\zeta! 
+      &$\sigma$, $\Sigma$\quad\lstinline[style=inline]!\sigma!, 
+          \lstinline[style=inline]!\Sigma!                   \\
+    $\eta$\quad\lstinline[style=inline]!\eta! 
+       &$\varsigma$\quad\lstinline[style=inline]!\varsigma!    \\
+    $\theta$ $\Theta$\quad\lstinline[style=inline]!\theta!,
+          \lstinline[style=inline]!\Theta! 
+      &$\tau$\quad \lstinline[style=inline]!\tau!                \\
+    $\vartheta$\quad\lstinline[style=inline]!\vartheta!    
+      &$\upsilon$, $\Upsilon$\quad\lstinline[style=inline]!\upsilon!,  
+            \lstinline[style=inline]!\Upsilon!                     \\
+    $\iota$\quad\lstinline[style=inline]!\iota!  
+      &$\phi$, $\Phi$\quad\lstinline[style=inline]!\phi!,   
+        \lstinline[style=inline]!\Phi!                             \\
+    $\kappa$\quad\lstinline[style=inline]!\kappa!
+      &$\varphi$\quad\lstinline[style=inline]!\varphi!         \\
+    $\lambda$ $\Lambda$\quad\lstinline[style=inline]!\lambda!, 
+          \lstinline[style=inline]!\Lambda! 
+      &$\chi$\quad\lstinline[style=inline]!\chi!                   \\
+    $\mu$\quad\lstinline[style=inline]!\mu!                      
+      &$\psi$, $\Psi$\quad\lstinline[style=inline]!\psi!, 
+          \lstinline[style=inline]!\Psi!                           \\
+    $\nu$\quad\lstinline[style=inline]!\nu!  
+      &$\omega$, $\Omega$\quad\lstinline[style=inline]!\omega!, 
+            \lstinline[style=inline]!\Omega! 
+  \end{tabular}
+\end{center}
+
+\section{Sets and logic}
+\begin{center} 
+  \begin{tabular}{@{}*{2}{l@{\hspace{1em}}}l@{}}
+    $\cup$\quad \lstinline[style=inline]!\cup!
+      &$\mathbb{R}$\quad\lstinline[style=inline]!\mathbb{R}!  
+      &$\forall$\quad \lstinline[style=inline]!\forall!        \\
+    $\cap$\quad \lstinline[style=inline]!\cap!
+      &$\mathbb{Z}$\quad\lstinline[style=inline]!\mathbb{Z}!  
+      &$\exists$\quad \lstinline[style=inline]!\exists!         \\  
+    $\subset$\quad\lstinline[style=inline]!\subset!  
+      &$\mathbb{Q}$\quad\lstinline[style=inline]!\mathbb{Q}!  
+      &$\neg$\quad \lstinline[style=inline]!\neg!                \\
+    $\subseteq$\quad \lstinline[style=inline]!\subseteq!     
+      &$\mathbb{N}$\quad\lstinline[style=inline]!\mathbb{N}!  
+      &$\vee$\quad \lstinline[style=inline]!\vee!               \\
+    $\supset$\quad \lstinline[style=inline]!\supset!       
+      &$\mathbb{C}$\quad\lstinline[style=inline]!\mathbb{C}!  
+      &$\wedge$\quad \lstinline[style=inline]!\wedge!           \\     
+    $\supseteq$\quad \lstinline[style=inline]!\supseteq!     
+      &$\varnothing$\quad \lstinline[style=inline]!\varnothing!       
+      &$\vdash$\quad \lstinline[style=inline]!\vdash!           \\ 
+    $\in$\quad \lstinline[style=inline]!\in!            
+      &$\emptyset$\quad \lstinline[style=inline]!\emptyset!  
+      &$\models$\quad \lstinline[style=inline]!\models!          \\
+    $\notin$\quad \lstinline[style=inline]!\notin!             
+      &$\aleph$\quad \lstinline[style=inline]!\aleph!  
+      &$\setminus$\quad \lstinline[style=inline]!\setminus!      \\    
+    % $\ni$\quad \lstinline[style=inline]!\ni!     
+  \end{tabular}
+\end{center}
+Negate an operator, as in $\not\subset$, 
+with \lstinline[style=inline]!\not\subset!.
+Get the set complement 
+$A^{\mathsf{c}}$ with \lstinline[style=inline]!A^{\mathsf{c}}! 
+(or $A^{\complement}$ with \lstinline[style=inline]!A^{\complement}!,
+or $\overline{A}$ with \lstinline[style=inline]!\overline{A}!).
+
+
+
+\section{Decorations}
+\begin{center}
+  \begin{tabular}{@{}*{2}{l@{\hspace{1em}}}l@{}}
+    % $f^\prime$\quad\lstinline[style=inline]!f^\prime!
+    $f'$\quad\lstinline[style=inline]!f'!
+      &$\dot{a}$\quad\lstinline[style=inline]!\dot{a}!      
+      &$\tilde{x}$\quad\lstinline[style=inline]!\tilde{x}!      \\
+    % $f^{\prime\prime}$\quad\lstinline[style=inline]!f^{\prime\prime}!
+    $f''$\quad\lstinline[style=inline]!f''!
+      &$\ddot{a}$\quad\lstinline[style=inline]!\ddot{a}!
+      &$\bar{x}$\quad\lstinline[style=inline]!\bar{x}!    \\
+    $\Sigma^{*}$\quad\lstinline[style=inline]!\Sigma^{*}!
+      &$\hat{x}$\quad\lstinline[style=inline]!\hat{x}!
+      &$\vec{x}$\quad\lstinline[style=inline]!\vec{x}!
+  \end{tabular}
+\end{center}
+If the decorated letter is $i$ or~$j$ then some decorations need
+\lstinline[style=inline]!\imath! or \lstinline[style=inline]!\jmath!, 
+as in \lstinline[style=inline]!\vec{\imath}!.
+Some authors use boldface for 
+vectors: \lstinline[style=inline]!\boldsymbol{x}!.
+% Mention \bm?
+
+Entering \lstinline[style=inline]!\overline{x+y}! produces 
+$\overline{x+y}$,
+and \lstinline[style=inline]!\widehat{x+y}! gives $\widehat{x+y}$.
+Comment on an expression as here 
+(there is also \lstinline[style=inline]!\overbrace{..}!).
+\begin{center}
+  $\underbrace{x+y}_{|A|}$\quad\lstinline[style=inline]!\underbrace{x+y}_{|A|}!
+\end{center}
+
+
+\section{Dots}
+Use low dots in a list 
+$\{0,1,2,\,\ldots\}$, entered as \lstinline[style=inline]!\{0,1,2,\,\ldots\}!. 
+(If you use \lstinline[style=inline]!\ldots! in plain text as with
+\lstinline[style=inline]!London, Paris, \ldots{}\,.! then note
+the thinspace  \lstinline[style=inline]!\,! before the period.)
+Use centered dots in a sum or product 
+$1+\cdots+100$, entered as \lstinline[style=inline]!1+\cdots+100!.
+You can also get 
+vertical dots \lstinline[style=inline]!\vdots!
+and diagonal dots \lstinline[style=inline]!\ddots!.
+
+\section{Roman names} Enter \lstinline[style=inline]!\tan(x)!,
+with a backslash, instead of \lstinline[style=inline]!tan(x)!.
+These get the same treatment.
+\begin{center}
+  \begin{tabular}{@{}*{3}{l@{\hspace{1.5em}}}l@{}}
+    $\sin$\quad \lstinline[style=inline]!\sin!
+      &$\sinh$\quad \lstinline[style=inline]!\sinh!     
+      &$\arcsin$\quad \lstinline[style=inline]!\arcsin!     \\    
+    $\cos$\quad \lstinline[style=inline]!\cos!
+      &$\cosh$\quad \lstinline[style=inline]!\cosh!     
+      &$\arccos$\quad \lstinline[style=inline]!\arccos!     \\   
+    $\tan$\quad \lstinline[style=inline]!\tan!
+      &$\tanh$\quad \lstinline[style=inline]!\tanh!      
+      &$\arctan$\quad \lstinline[style=inline]!\arctan!     \\
+    $\sec$\quad \lstinline[style=inline]!\sec!
+      &$\coth$\quad \lstinline[style=inline]!\coth!     
+      &$\min$\quad \lstinline[style=inline]!\min!           \\
+    $\csc$\quad \lstinline[style=inline]!\csc!  
+      &$\det$\quad \lstinline[style=inline]!\det!
+      &$\max$\quad \lstinline[style=inline]!\max!           \\
+    $\cot$\quad \lstinline[style=inline]!\cot!
+      &$\dim$\quad \lstinline[style=inline]!\dim!
+      &$\inf$\quad \lstinline[style=inline]!\inf!             \\
+    $\exp$\quad \lstinline[style=inline]!\exp! 
+      &$\ker$\quad \lstinline[style=inline]!\ker!               
+      &$\sup$\quad \lstinline[style=inline]!\sup!             \\
+    $\log$\quad \lstinline[style=inline]!\log!
+      &$\deg$\quad \lstinline[style=inline]!\deg!
+      &$\liminf$\quad \lstinline[style=inline]!\liminf!         \\
+    $\ln$\quad \lstinline[style=inline]!\ln!
+      &$\arg$\quad \lstinline[style=inline]!\arg!
+      &$\limsup$\quad \lstinline[style=inline]!\limsup!         \\
+    $\lg$\quad \lstinline[style=inline]!\lg!
+      &$\gcd$\quad \lstinline[style=inline]!\gcd!  
+      &$\lim$\quad \lstinline[style=inline]!\lim!                \\
+    % &$\hom$\quad \lstinline[style=inline]!\hom!                \\
+  \end{tabular}
+\end{center}
+
+
+\section{Other symbols}
+\begin{center}
+  \begin{tabular}{@{}*{2}{l@{\hspace{1.2em}}}l@{}}
+    $<$\quad \lstinline[style=inline]!<!  
+      &$\angle$\quad \lstinline[style=inline]!\angle!      
+      &$\cdot$\quad \lstinline[style=inline]!\cdot!         \\
+    $\leq$\quad \lstinline[style=inline]!\leq!
+      &$\measuredangle$\quad \lstinline[style=inline]!\measuredangle!      
+      &$\pm$\quad \lstinline[style=inline]!\pm!             \\
+    $>$\quad \lstinline[style=inline]!>!  
+      &$\ell$\quad \lstinline[style=inline]!\ell!  
+      &$\mp$\quad \lstinline[style=inline]!\mp!            \\
+    $\geq$\quad \lstinline[style=inline]!\geq!
+      &$\parallel$\quad \lstinline[style=inline]!\parallel!      
+      &$\times$\quad \lstinline[style=inline]!\times!       \\
+    $\neq$\quad \lstinline[style=inline]!\neq!
+      &$45^{\circ}$\quad \lstinline[style=inline]!45^{\circ}!
+      &$\div$\quad \lstinline[style=inline]!\div!            \\
+    $\ll$\quad \lstinline[style=inline]!\ll!        
+      &$\cong$\quad \lstinline[style=inline]!\cong!        
+      &$\ast$\quad \lstinline[style=inline]!\ast!            \\
+    $\gg$\quad \lstinline[style=inline]!\gg!      
+      &$\ncong$\quad \lstinline[style=inline]!\ncong!        
+      &$\mid$\quad \lstinline[style=inline]!\mid!            \\
+    $\approx$\quad \lstinline[style=inline]!\approx!      
+      &$\sim$\quad \lstinline[style=inline]!\sim!      
+      &$\nmid$\quad \lstinline[style=inline]!\nmid!          \\
+    $\asymp$\quad \lstinline[style=inline]!\asymp!      
+      &$\simeq$\quad \lstinline[style=inline]!\simeq!        
+      &$n!$\quad \lstinline[style=inline]+n!+                 \\
+    $\equiv$\quad \lstinline[style=inline]!\equiv!      
+      &$\nsim$\quad \lstinline[style=inline]!\nsim!      
+      &$\partial$\quad \lstinline[style=inline]!\partial!     \\
+    $\prec$\quad \lstinline[style=inline]!\prec!        
+      &$\oplus$\quad \lstinline[style=inline]!\oplus!
+      &$\nabla$\quad \lstinline[style=inline]!\nabla!        \\
+    $\preceq$\quad \lstinline[style=inline]!\preceq!      
+      &$\ominus$\quad \lstinline[style=inline]!\ominus!   
+      &$\hbar$\quad \lstinline[style=inline]!\hbar!        \\
+    $\succ$\quad \lstinline[style=inline]!\succ!        
+      &$\odot$\quad \lstinline[style=inline]!\odot!      
+      &$\circ$\quad \lstinline[style=inline]!\circ!         \\
+    $\succeq$\quad \lstinline[style=inline]!\succeq!      
+      &$\otimes$\quad \lstinline[style=inline]!\otimes!  
+      &$\star$\quad \lstinline[style=inline]!\star!            \\
+    $\propto$\quad \lstinline[style=inline]!\propto!      
+      &$\oslash$\quad \lstinline[style=inline]!\oslash!    
+      &$\surd$\quad \lstinline[style=inline]!\surd!            \\
+    $\doteq$\quad \lstinline[style=inline]!\doteq!       
+      &$\upharpoonright$\quad \lstinline[style=inline]!\upharpoonright! 
+      &$\checkmark$\quad \lstinline[style=inline]!\checkmark!   \\   
+  \end{tabular}
+\end{center}
+Use \lstinline[style=inline]!a\mid b! for the divides relation, 
+\mbox{$a\mid b$},
+and \lstinline[style=inline]!a\nmid b! for the negation,  \mbox{$a\nmid b$}.
+Also use \lstinline[style=inline]!\mid! to get 
+set builder notation \mbox{$\{a\in S \mid\text{$a$ is odd}\}$},
+with
+\lstinline[style=inline]!\{a\in S\mid\text{$a$ is odd}\}!.
+
+\section{Arrows} 
+\begin{center}
+  \begin{tabular}{@{}l*{1}{@{\hspace{1.5em}}l}@{}}
+    $\rightarrow$\quad \lstinline[style=inline]!\rightarrow!,
+        \lstinline[style=inline]!\to!
+      &$\mapsto$\quad \lstinline[style=inline]!\mapsto!                \\  
+    $\nrightarrow$\quad \lstinline[style=inline]!\nrightarrow!     
+      &$\longmapsto$\quad \lstinline[style=inline]!\longmapsto!         \\
+    $\longrightarrow$\quad \lstinline[style=inline]!\longrightarrow!
+      &$\leftarrow$\quad \lstinline[style=inline]!\leftarrow!         \\
+    $\Rightarrow$\quad \lstinline[style=inline]!\Rightarrow!
+      &$\leftrightarrow$\quad \lstinline[style=inline]!\leftrightarrow! \\
+    $\nRightarrow$\quad \lstinline[style=inline]!\nRightarrow!
+      &$\downarrow$\quad \lstinline[style=inline]!\downarrow!           \\   
+    $\Longrightarrow$\quad \lstinline[style=inline]!\Longrightarrow!
+      &$\uparrow$\quad \lstinline[style=inline]!\uparrow!               \\
+    $\leadsto$\quad \lstinline[style=inline]!\leadsto!
+      &$\updownarrow$\quad \lstinline[style=inline]!\updownarrow!      \\
+  \end{tabular}
+\end{center}
+The right arrows in the first column have matching left arrows, 
+such as \lstinline[style=inline]!\nleftarrow!,
+and there are some other matches for down arrows, etc.
+
+\section{Variable-sized operators}
+The summation
+$\sum_{j=0}^3j^2$\quad\lstinline[style=inline]!\sum_{j=0}^3 j^2!  
+and the integral $\int_{x=0}^3x^2\,dx$
+\lstinline[style=inline]!\int_{x=0}^3 x^2\,dx!
+expand when displayed.
+\begin{equation*}
+  \sum_{j=0}^3j^2
+  \qquad
+  \int_{x=0}^3x^2\,dx
+\end{equation*}
+These do the same.
+\begin{center}
+  \begin{tabular}{@{}*{2}{l@{\hspace{.35in}}}l@{}}
+    $\int$\quad\lstinline[style=inline]!\int!          
+      &$\iiint$\quad\lstinline[style=inline]!\iiint!
+      &$\bigcup$\quad\lstinline[style=inline]!\bigcup!     \\ 
+    $\iint$\quad\lstinline[style=inline]!\iint!
+      &$\oint$\quad\lstinline[style=inline]!\oint!       
+      &$\bigcap$\quad\lstinline[style=inline]!\bigcap!     \\
+      % &$\bigvee$\quad\lstinline[style=inline]!\bigvee!
+      % &$\bigwedge$\quad\lstinline[style=inline]!\bigwedge!  \\
+  \end{tabular}
+\end{center}
+
+\section{Fences}
+\begin{center}
+  \begin{tabular}{@{}*{2}{l@{\hspace{1.5em}}}l@{}}
+    $(\;)$\quad \lstinline[style=inline]!()!
+      &$\langle\;\rangle$\quad\lstinline[style=inline]!\langle\rangle!  
+      &$|\; |$\quad\lstinline[style=inline]!| |!                  \\
+    $[\;]$\quad\lstinline[style=inline]![]!                         
+      &$\lfloor\;\rfloor$\quad\lstinline[style=inline]!\lfloor\rfloor!
+      &$\|\;\|$\quad\lstinline[style=inline]!\| \|!           \\
+    $\{\;\}$\quad\lstinline[style=inline]!\{\}!                            
+      &$\lceil\;\rceil$\quad\lstinline[style=inline]!\lceil\rceil!     
+  \end{tabular}
+\end{center}
+Fix the size with  
+\lstinline[style=inline]!\big!, 
+\lstinline[style=inline]!\Big!, 
+\lstinline[style=inline]!\bigg!, or 
+\lstinline[style=inline]!\Bigg!.
+\begin{center}
+  $\displaystyle\Big[\sum_{k=0}^n e^{k^2}\Big]$\quad
+    \lstinline[style=inline]!\Big[\sum_{k=0}^n e^{k^2}\Big]!
+\end{center}
+To have them grow with the enclosed formula,
+use \lstinline[style=inline]!\left! and \lstinline[style=inline]!\right!
+(although sometimes \lstinline[style=inline]!\big!, etc., are necessary).
+\begin{center}
+  $\displaystyle\left\langle i,2^{2^i}\right\rangle$\quad
+    \lstinline[style=inline]!\left\langle i,2^{2^i}\right\rangle!
+\end{center}
+Every
+\lstinline[style=inline]!\left! must match a
+\lstinline[style=inline]!\right!
+and they must end on the same line in the output.
+For a one-sided fence, put a  
+\lstinline[style=inline]!\left.! or 
+\lstinline[style=inline]!\right.! on the other side.
+\begin{center}
+  $\displaystyle\left.\frac{df}{dx}\right|_{x_0}$\quad
+  \lstinline[style=inline]!\left.\frac{df}{dx}\right|_{x_0}!
+\end{center}
+
+
+\section{Arrays, Matrices}
+Make an array of mathematical text as you make a 
+table of plain text.
+\begin{center}
+  \vspace*{-\topsep}
+  \begin{minipage}{.2\columnwidth}\noindent
+  $\displaystyle
+  \begin{array}{@{}rcl@{}}
+    0 &\leftrightarrow &0 \\
+    1 &\leftrightarrow &1 \\
+    2 &\leftrightarrow &4 \\
+    \vdots &           &\vdots 
+  \end{array}
+  $
+\end{minipage}
+\quad
+\begin{minipage}{.6\columnwidth}\noindent
+\begin{lstlisting}[xleftmargin=0em]
+  \begin{array}{rcl}
+    0 &\leftrightarrow &0 \\
+    1 &\leftrightarrow &1 \\
+    2 &\leftrightarrow &4 \\
+    \vdots &           &\vdots
+  \end{array}
+\end{lstlisting}
+\end{minipage}
+\end{center}
+Definition by cases is an array with two columns. 
+\begin{center}
+  $\displaystyle
+  f_n=\begin{cases}
+         a              &\text{if $n=0$}   \\
+         r\cdot f_{n-1}  &\text{else}   
+       \end{cases}
+  $
+\quad
+\begin{minipage}{.525\columnwidth}\noindent
+\begin{lstlisting}[xleftmargin=-1em]
+  f_n=
+  \begin{cases}
+   a     &\text{if $n=0$} \\
+   r\cdot f_{n-1} &\text{else}   
+  \end{cases}
+\end{lstlisting}
+\end{minipage}
+\end{center}
+A matrix is an array with fences.
+With a \lstinline[style=inline]!pmatrix! environment, 
+you need not specify column alignments.
+\begin{center}
+  $\displaystyle
+  \begin{pmatrix}
+    a  &b \\
+    c  &d
+  \end{pmatrix}
+  $
+  \quad
+\begin{minipage}{.525\columnwidth}\noindent
+\begin{lstlisting}[xleftmargin=0em]
+  \begin{pmatrix}
+    a  &b \\
+    c  &d
+  \end{pmatrix}
+\end{lstlisting}
+\end{minipage}
+\end{center}
+For the determinant use \lstinline[style=inline]!|A|! inline
+and \lstinline[style=inline]!vmatrix! in display.
+
+\section{Spacing in mathematics}
+Improve $\sqrt{2}x$ to  $\sqrt{2}\,x$ with a thin space, 
+as in \lstinline[style=inline]!\sqrt{2}\,x!.
+Slightly wider are \lstinline[style=inline]!\:!
+and \lstinline[style=inline]!\;! 
+(the three are in ratio $3\mathbin{:}4\mathbin{:}5$).
+Get the improvement of $n/\!\log n$ instead of $n/\log n$
+by using a negative thin space,
+as in \lstinline[style=inline]+n/\!\log n+. 
+Bigger spaces are: \lstinline[style=inline]!\quad! for 
+$\rightarrow\quad\leftarrow$, and \lstinline[style=inline]!\qquad! for 
+$\rightarrow\qquad\leftarrow$, 
+which are useful between parts of a display.
+% \begin{center}
+%   \begin{tabular}{@{}*{1}{l@{\hspace{2.25em}}}l@{}}
+%     $\rightarrow\mkern3mu\leftarrow$\quad\lstinline[style=inline]!\,!
+%       &$\rightarrow\quad\leftarrow$\quad\lstinline[style=inline]!\quad!   \\
+%     $\rightarrow\mkern4mu\leftarrow$\quad\lstinline[style=inline]!\:!
+%       &$\rightarrow\qquad\leftarrow$\quad\lstinline[style=inline]!\qquad! \\
+%     $\rightarrow\mkern5mu\leftarrow$\quad\lstinline[style=inline]!\;!
+%       &$\rightarrow\!\leftarrow$\quad\lstinline[style=inline]+\!+           
+%   \end{tabular}
+% \end{center}
+Get arbitrary space as in 
+% $\rightarrow\hspace*{0.5cm}\leftarrow$
+\lstinline[style=inline]!\hspace*{0.5cm}!.
+
+
+\section{Displayed equations}
+The
+\lstinline[style=inline]!equation*! environment
+puts an equation on a separate line.
+\begin{center}
+\vspace*{-\topsep}
+  \begin{minipage}{0.25\linewidth}\vspace*{-\abovedisplayskip}
+    \begin{equation*}
+      S=k\cdot\lg W
+    \end{equation*}
+  \end{minipage}
+  \quad
+  \begin{minipage}{0.65\linewidth}
+\begin{lstlisting}[xleftmargin=0ex]
+\begin{equation*}
+  S=k\cdot\lg W
+\end{equation*}
+\end{lstlisting}
+  \end{minipage}
+\end{center}
+You can break into multiple lines. 
+\begin{center}
+\vspace*{-\topsep}
+  \begin{minipage}{0.35\linewidth}\vspace*{-\abovedisplayskip}
+    \begin{multline*}
+      \sin (x)=x-\frac{x^3}{3!} \\
+          +\frac{x^5}{5!}-\cdots
+    \end{multline*}
+  \end{minipage}
+  \quad
+  \begin{minipage}{0.55\linewidth}
+\begin{lstlisting}[xleftmargin=0ex]
+\begin{multline*}
+  \sin (x)=x-\frac{x^3}{3!} \\
+      +\frac{x^5}{5!}-\cdots
+\end{multline*}
+\end{lstlisting}
+  \end{minipage}
+\end{center}
+Align equations using \lstinline[style=inline]!align*!
+\vspace*{-\topsep}
+\begin{center}
+  \begin{minipage}[c]{0.25\linewidth}\vspace*{-\abovedisplayskip}
+    \begin{align*}
+      \nabla\cdot\boldsymbol{D} &= \rho \\
+      \nabla\cdot\boldsymbol{B} &= 0    
+    \end{align*}
+  \end{minipage}
+  \quad
+  \begin{minipage}[c]{0.65\linewidth}
+\begin{lstlisting}[xleftmargin=0ex,boxpos=c]
+\begin{align*}
+  \nabla\cdot\boldsymbol{D} &= \rho \\
+  \nabla\cdot\boldsymbol{B} &= 0    
+\end{align*}
+\end{lstlisting}
+  \end{minipage}
+\end{center}
+(the left or right side of an alignment can be empty).
+For each environment, get a numbered version by 
+dropping the asterisk from the name.
+
+
+\section{Calculus examples}
+The last three here are display style.
+\begin{center} \small \def\arraystretch{2}
+  \vspace*{-\topsep}\vspace*{-0.25cm}
+  \begin{tabular}{@{}l@{}}
+    $ f\colon\mathbb{R}\to\mathbb{R} $  
+      \quad\lstinline[style=inline]!f\colon\mathbb{R}\to\mathbb{R}!      \\
+    $ 9.8~\text{m}/\text{s}^2 $  
+      \quad\lstinline[style=inline]!9.8~\text{m}/\text{s}^2!      \\
+    $\displaystyle
+     \lim_{h\to 0}\frac{f(x+h)-f(x)}{h}
+    $
+    \quad\lstinline[style=inline]!\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}!   \\
+    $\displaystyle
+     \int x^2\,dx=x^3/3+C
+    $
+    \quad\lstinline[style=inline]!\int x^2\,dx=x^3/3+C!             \\
+    % $\displaystyle
+    %  \frac{dy}{dx}=\frac{dy}{du}\frac{du}{dx}
+    % $
+    % &\lstinline[style=inline]!\frac{dy}{dx}=\frac{dy}{du}\frac{du}{dx}! \\
+    $\displaystyle
+     \nabla=\boldsymbol{i}\frac{d}{dx}
+             +\boldsymbol{j}\frac{d}{dy}
+             +\boldsymbol{k}\frac{d}{dz}
+    $
+    \quad\lstinline[style=inline]!\nabla=\boldsymbol{i}\frac{d}{dx}+!\,$\cdots$\\
+  \end{tabular}
+\end{center}
+
+\section{Discrete mathematics examples}
+There are four modulo forms: 
+$m\bmod n$ is from \lstinline[style=inline]!m\bmod n!,
+and $a\equiv b\pmod m$ is from \lstinline[style=inline]!a\equiv b\pmod m!,
+and $a\equiv b\mod m$ is from \lstinline[style=inline]!a\equiv b\mod m!,
+and $a\equiv b\pod m$ is from \lstinline[style=inline]!a\equiv b\pod m!.
+
+For combinations the binomial symbol $\binom{n}{k}$ is from
+\lstinline[style=inline]!\binom{n}{k}!.
+This resizes to be bigger in a display
+(to require the display version use \lstinline[style=inline]!\dbinom{n}{k}!
+and require the inline version with \lstinline[style=inline]!\tbinom{n}{k}!).
+
+For permutations use 
+$ n^{\underline{r}} $ from \lstinline[style=inline]!n^{\underline{r}}! 
+(some authors use $ P(n,r) $, 
+or $ {}_nP_r $ from  \lstinline[style=inline]!{}_nP_r!).
+
+
+\section{Statistics examples}
+\begin{center} \small\def\arraystretch{1.5}
+  \vspace*{-\topsep}\vspace*{-0.15cm}
+  \begin{tabular}{@{}l@{}}
+    $
+     \sigma^2=\sqrt{\,\sum (x_i-\mu)^2/N}
+    $
+    \quad\lstinline[style=inline]!\sigma^2=\sqrt{\,\sum (x_i-\mu)^2/N}!   \\
+    $
+     E(X)=\mu_X=\sum (x_i-P(x_i))
+    $
+    \quad\lstinline[style=inline]! E(X)=\mu_X=\sum (x_i-P(x_i))!             \\
+  \end{tabular}
+\end{center}
+The probability density of the normal distribution 
+\begin{equation*}
+     \frac{1}{\sqrt{2\sigma^2\pi}}\,e^{-\frac{(x-\mu)^2}{2\sigma^2}}
+\end{equation*}
+comes from this.
+\begin{lstlisting}
+   \frac{1}{sqrt{2\sigma^2\pi}}
+      \,e^{-\frac{(x-\mu)^2}{2\sigma^2}}!.
+\end{lstlisting}
+
+
+\section{For more} 
+See also the 
+Comprehensive \LaTeX{} Symbols 
+List at \url{mirror.ctan.org/info/symbols/comprehensive}
+and De\TeX ify at \url{detexify.kirelabs.org/classify.html}.
+
+
+\vfill
+\noindent\parbox{\columnwidth}{\small%
+{\color{headcolor}\hrulefill\\
+\vspace*{0ex}
+Jim Hef{}feron, Saint Michael's College, VT USA\hfill 2020-Dec-30
+}}
+\end{document}
