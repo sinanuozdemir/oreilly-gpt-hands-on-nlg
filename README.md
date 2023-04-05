@@ -19,8 +19,18 @@ The Natural Language Processing with Next-Generation Transformer Architectures s
 
 [Multi-task learning with GPT2](notebooks/Multi_Task_Learning.ipynb)
 
-[Third party fine-tuned GPT models](notebooks/Third_Party_Models.ipynb)
+[Dolly Lite Notebook](notebooks/Dolly_Lite.ipynb)
+
+- Link to original blog: [here](https://www.databricks.com/blog/2023/03/24/hello-dolly-democratizing-magic-chatgpt-open-models.html)
+
+[Prompt Engineering 101](notebooks/prompt_engineering_101.ipynb)
+
+[More Third party fine-tuned GPT models](notebooks/Third_Party_Models.ipynb)
+
 
 ## Instructor
 
-*Sinan Ozdemir* is currently the Director of Data Science at Directly, managing the AI and machine learning models that power the company’s intelligent customer support platform. Sinan is a former lecturer of Data Science at Johns Hopkins University and the author of multiple textbooks on data science and machine learning. Additionally, he is the founder of the recently acquired Kylie.ai, an enterprise-grade conversational AI platform with RPA capabilities. He holds a Master’s Degree in Pure Mathematics from Johns Hopkins University and is based in San Francisco, CA.
+![](images/square_headshot_small.jpg)
+
+**Sinan Ozdemir** is the Founder and CTO of LoopGenius where he uses State of the art AI to help people create and run their businesses. Sinan is a former lecturer of Data Science at Johns Hopkins University and the author of multiple textbooks on data science and machine learning. Additionally, he is the founder of the recently acquired Kylie.ai, an enterprise-grade conversational AI platform with RPA capabilities. He holds a master’s degree in Pure Mathematics from Johns Hopkins University and is based in San Francisco, CA.
+
